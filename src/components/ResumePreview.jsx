@@ -113,10 +113,10 @@ const ResumePreview = ({ variant = "minimal" }) => {
         className="bg-gradient-to-br from-blue-50 to-indigo-50 font-poppins p-8"
       >
         <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
-          <div className="grid grid-cols-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Left Panel */}
-            <div className="col-span-1 bg-gradient-to-br from-[#2A3042] to-[#1E293B] text-white p-8">
-              <div className="sticky top-0 space-y-6">
+            <div className="col-span-1 sm:col-span-2 lg:col-span-1 bg-gradient-to-br from-[#2A3042] to-[#1E293B] text-white p-8">
+            <div className="sticky top-0 space-y-6">
                 {/* Profile Image & Name */}
                 <div className="text-center">
                   <div className="w-32 h-32 mx-auto mb-4 rounded-full border-4 border-white/20 overflow-hidden">
@@ -199,8 +199,8 @@ const ResumePreview = ({ variant = "minimal" }) => {
             </div>
 
             {/* Right Panel */}
-            <div className="col-span-2 p-8 space-y-8">
-              {/* Summary */}
+ <div className="col-span-1 sm:col-span-2 lg:col-span-2 p-8 space-y-8">
+                 {/* Summary */}
               <div>
                 <h2 className="text-xl font-bold text-[#2A3042] mb-4">
                   Professional Summary
@@ -292,19 +292,19 @@ const ResumePreview = ({ variant = "minimal" }) => {
     return (
       <div
         ref={componentRef}
-        className="max-w-4xl mx-auto p-12 bg-white min-h-screen font-raleway "
+        className="max-w-4xl mx-auto p-6 sm:p-12 bg-white min-h-screen font-raleway"
         id="resume"
       >
         {/* Header */}
-        <header className="mb-10 border-b-2 border-zinc-700 pb-6 flex gap-16 justify-between">
+        <header className="mb-10 border-b-2 border-zinc-700 pb-6 flex flex-col sm:flex-row gap-4 sm:gap-16 justify-between">
           <div>
-            <h1 className="mb-2 text-4xl uppercase tracking-wide font-raleway font-semibold text-zinc-800">
+            <h1 className="mb-2 text-3xl sm:text-4xl uppercase tracking-wide font-raleway font-semibold text-zinc-800">
               {personalInfo.name}
             </h1>
             <p className="text-lg text-gray-600">{personalInfo.jobTitle}</p>
           </div>
 
-          <ul className="space-y-2 text-sm text-gray-600 flex flex-col items-end">
+          <ul className="space-y-2 text-sm text-gray-600 flex flex-col items-start sm:items-end">
             {personalInfo.location && (
               <li className="flex items-center gap-2">
                 {personalInfo.location}
@@ -332,7 +332,7 @@ const ResumePreview = ({ variant = "minimal" }) => {
           </ul>
         </header>
 
-        <div className="grid grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-12">
           {/* Left Column */}
           <div className="col-span-1 space-y-8 border-r-2 border-zinc-400 pr-4">
             {/* Education Section */}
@@ -383,7 +383,7 @@ const ResumePreview = ({ variant = "minimal" }) => {
           </div>
 
           {/* Right Column */}
-          <div className="col-span-2 space-y-8">
+          <div className="col-span-1 sm:col-span-2 space-y-8">
             {/* Summary Section */}
             <section className="-ml-4 pb-4 border-b-2 border-zinc-400">
               <h2 className="font-semibold text-gray-800 mb-4 uppercase tracking-wider font-raleway">
@@ -421,7 +421,7 @@ const ResumePreview = ({ variant = "minimal" }) => {
                 <h2 className="font-semibold text-gray-800 mb-4 uppercase tracking-wider font-raleway">
                   References
                 </h2>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {references.map((ref) => (
                     <div
                       key={ref.id}
@@ -449,7 +449,7 @@ const ResumePreview = ({ variant = "minimal" }) => {
         </div>
       </div>
     );
-  });
+  });  
   const ClassicLayout = forwardRef((_, componentRef) => {
     ClassicLayout.displayName = "ClassicLayout";
     const { resumeData } = useResume();
@@ -466,12 +466,12 @@ const ResumePreview = ({ variant = "minimal" }) => {
       <div ref={componentRef} className="bg-gray-100 py-10" id="resume">
         <div className="max-w-5xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
           {/* Header Section */}
-          <div className="grid grid-cols-3 gap-6 p-6 bg-gray-200">
-            <div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-6 bg-gray-200">
+            <div className="flex justify-center">
               <img
                 src={personalInfo?.image || "https://via.placeholder.com/150"}
                 alt="Profile"
-                className="w-36 h-36 rounded-md border-2 border-gray-300 mx-auto object-cover"
+                className="w-36 h-36 rounded-md border-2 border-gray-300 object-cover"
               />
             </div>
             <div className="col-span-2 flex flex-col justify-center">
@@ -485,7 +485,7 @@ const ResumePreview = ({ variant = "minimal" }) => {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-8 px-6 py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 px-6 py-8">
             <div className="space-y-6">
               {/* Contact */}
               <div>
@@ -576,7 +576,7 @@ const ResumePreview = ({ variant = "minimal" }) => {
               </div>
             </div>
 
-            <div className="col-span-2 space-y-6">
+            <div className="col-span-1 sm:col-span-2 space-y-6">
               {/* Profile */}
               <div>
                 <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
@@ -631,128 +631,127 @@ const ResumePreview = ({ variant = "minimal" }) => {
         </div>
       </div>
     );
-  });
+  });  
+    const CreativeLayout = forwardRef((_, componentRef) => {
+      CreativeLayout.displayName = "CreativeLayout";
+      const { resumeData } = useResume();
+      const { personalInfo, education, workExperience, skills, references } =
+        resumeData;
 
-  const CreativeLayout = forwardRef((_, componentRef) => {
-    CreativeLayout.displayName = "CreativeLayout";
-    const { resumeData } = useResume();
-    const { personalInfo, education, workExperience, skills, references } =
-      resumeData;
-
-    return (
-      <div
-        ref={componentRef}
-        className="bg-gray-100 flex justify-center items-center min-h-screen font-montserrat"
-        id="resume"
-      >
-        <div className="bg-white w-full max-w-4xl grid grid-cols-3 gap-6 p-8 rounded-lg shadow-lg">
-          {/* Header */}
-          <div className="col-span-3 flex justify-between items-center border-b-2 border-yellow-600 pb-4">
-            <div>
-              <h1 className="text-4xl font-bold uppercase text-gray-800">
-                {personalInfo?.name || "Your Name"}
-              </h1>
-              <h2 className="text-lg text-gray-600 font-medium">
-                {personalInfo?.jobTitle || "Your Title"}
-              </h2>
+      return (
+        <div
+          ref={componentRef}
+          className="bg-gray-100 flex justify-center items-center min-h-screen font-montserrat"
+          id="resume"
+        >
+          <div className="bg-white w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-6 p-8 rounded-lg shadow-lg">
+            {/* Header */}
+            <div className="col-span-1 md:col-span-3 flex justify-between items-center border-b-2 border-yellow-600 pb-4">
+              <div>
+                <h1 className="text-4xl font-bold uppercase text-gray-800">
+                  {personalInfo?.name || "Your Name"}
+                </h1>
+                <h2 className="text-lg text-gray-600 font-medium">
+                  {personalInfo?.jobTitle || "Your Title"}
+                </h2>
+              </div>
+              <div>
+                <img
+                  src={personalInfo?.image || "https://via.placeholder.com/120"}
+                  alt="Profile Photo"
+                  className="w-28 h-28 object-cover rounded-full border-4 border-yellow-600"
+                />
+              </div>
             </div>
-            <div>
-              <img
-                src={personalInfo?.image || "https://via.placeholder.com/120"}
-                alt="Profile Photo"
-                className="w-28 h-28 object-cover rounded-full border-4 border-yellow-600"
-              />
+
+            {/* Profile Section */}
+            <div className="col-span-1 md:col-span-2">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Profile</h3>
+              <p className="text-gray-600 leading-relaxed">
+                {personalInfo?.summary}
+              </p>
             </div>
-          </div>
 
-          {/* Profile Section */}
-          <div className="col-span-2">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Profile</h3>
-            <p className="text-gray-600 leading-relaxed">
-              {personalInfo?.summary}
-            </p>
-          </div>
+            {/* Contact Section */}
+            <div className="col-span-1 border-l-2 border-yellow-600 pl-6">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Contact</h3>
+              <ul className="space-y-4">
+                {personalInfo?.contact && (
+                  <li className="flex items-center">
+                    <HiPhone className="w-6 h-6 text-yellow-600 mr-3" />
+                    {personalInfo.contact}
+                  </li>
+                )}
+                {personalInfo?.email && (
+                  <li className="flex items-center">
+                    <HiMail className="w-6 h-6 text-yellow-600 mr-3" />
+                    {personalInfo.email}
+                  </li>
+                )}
+                {personalInfo?.location && (
+                  <li className="flex items-center">
+                    <HiLocationMarker className="w-6 h-6 text-yellow-600 mr-3" />
+                    {personalInfo.location}
+                  </li>
+                )}
+              </ul>
+            </div>
 
-          {/* Contact Section */}
-          <div className="col-span-1 border-l-2 border-yellow-600 pl-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Contact</h3>
-            <ul className="space-y-4">
-              {personalInfo?.contact && (
-                <li className="flex items-center">
-                  <HiPhone className="w-6 h-6 text-yellow-600 mr-3" />
-                  {personalInfo.contact}
-                </li>
-              )}
-              {personalInfo?.email && (
-                <li className="flex items-center">
-                  <HiMail className="w-6 h-6 text-yellow-600 mr-3" />
-                  {personalInfo.email}
-                </li>
-              )}
-              {personalInfo?.location && (
-                <li className="flex items-center">
-                  <HiLocationMarker className="w-6 h-6 text-yellow-600 mr-3" />
-                  {personalInfo.location}
-                </li>
-              )}
-            </ul>
-          </div>
+            {/* Experience Section */}
+            <div className="col-span-1 md:col-span-2">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Experience</h3>
+              <ul className="space-y-4">
+                {workExperience?.map((exp) => (
+                  <li key={exp.id}>
+                    <div className="font-bold text-gray-800">
+                      {exp.position} / {exp.company} {exp.duration}
+                    </div>
+                    <p className="text-gray-600 mt-2">{exp.description}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Experience Section */}
-          <div className="col-span-2">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Experience</h3>
-            <ul className="space-y-4">
-              {workExperience?.map((exp) => (
-                <li key={exp.id}>
-                  <div className="font-bold text-gray-800">
-                    {exp.position} / {exp.company} {exp.duration}
+            {/* Education Section */}
+            <div className="col-span-1">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Education</h3>
+              <ul className="space-y-2">
+                {education?.map((edu) => (
+                  <li key={edu.id} className="text-gray-600">
+                    {edu.institution} {edu.duration} {edu.degree}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Skills Section */}
+            <div className="col-span-1">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Skills</h3>
+              <ul className="list-disc list-inside text-gray-600">
+                {skills?.map((skill, index) => (
+                  <li key={index}>{skill}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* References Section */}
+            <div className="col-span-1 md:col-span-3 border-t-2 border-yellow-600 pt-6">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">References</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {references?.map((ref) => (
+                  <div key={ref.id} className="bg-gray-50 p-4 rounded-lg">
+                    <div className="font-bold text-gray-800">{ref.name}</div>
+                    <div className="text-yellow-600">{ref.position}</div>
+                    <div className="text-gray-600">{ref.company}</div>
+                    <div className="text-gray-600 mt-2">{ref.contact}</div>
                   </div>
-                  <p className="text-gray-600 mt-2">{exp.description}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Education Section */}
-          <div className="col-span-1">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Education</h3>
-            <ul className="space-y-2">
-              {education?.map((edu) => (
-                <li key={edu.id} className="text-gray-600">
-                  {edu.institution} {edu.duration} {edu.degree}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Skills Section */}
-          <div className="col-span-1">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Skills</h3>
-            <ul className="list-disc list-inside text-gray-600">
-              {skills?.map((skill, index) => (
-                <li key={index}>{skill}</li>
-              ))}
-            </ul>
-          </div>
-
-          {/* References Section */}
-          <div className="col-span-3 border-t-2 border-yellow-600 pt-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">References</h3>
-            <div className="grid grid-cols-2 gap-6">
-              {references?.map((ref) => (
-                <div key={ref.id} className="bg-gray-50 p-4 rounded-lg">
-                  <div className="font-bold text-gray-800">{ref.name}</div>
-                  <div className="text-yellow-600">{ref.position}</div>
-                  <div className="text-gray-600">{ref.company}</div>
-                  <div className="text-gray-600 mt-2">{ref.contact}</div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
-  });
+      );
+    });
   const SimpleLayout = forwardRef((_, componentRef) => {
     SimpleLayout.displayName = "SimpleLayout";
     const { resumeData } = useResume();
@@ -895,7 +894,6 @@ const ResumePreview = ({ variant = "minimal" }) => {
       </div>
     );
   });
-
   let ResumeLayout = null;
   switch (variant) {
     case "modern":
